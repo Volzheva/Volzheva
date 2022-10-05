@@ -1,8 +1,8 @@
 import typing as tp
-alfavit = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
+    alfavit = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     """
     Encrypts plaintext using a Caesar cipher.
     >>> encrypt_caesar("PYTHON")
@@ -42,4 +42,6 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     """
 
     return encrypt_caesar(ciphertext, -shift)
+
+
 
