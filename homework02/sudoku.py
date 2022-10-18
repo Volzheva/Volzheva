@@ -6,7 +6,6 @@ T = tp.TypeVar("T")
 
 
 def read_sudoku(path: tp.Union[str, pathlib.Path]) -> tp.List[tp.List[str]]:
-    """ Прочитать Судоку из указанного файла """
     path = pathlib.Path(path)
     with path.open() as f:
         puzzle = f.read()
@@ -20,7 +19,6 @@ def create_grid(puzzle: str) -> tp.List[tp.List[str]]:
 
 
 def display(grid: tp.List[tp.List[str]]) -> None:
-    """Вывод Судоку """
     width = 2
     line = "+".join(["-" * (width * 3)] * 3)
     for row in range(9):
@@ -42,7 +40,7 @@ def group(values: tp.List[T], n: int) -> tp.List[tp.List[T]]:
     >>> group([1,2,3,4,5,6,7,8,9], 3)
     [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     """
-    return [values[x:n + x] for x in range(0, len(values), n)]
+    return [values[x : n + x] for x in range(0, len(values), n)]
 
 
 def get_row(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.List[str]:
@@ -101,7 +99,7 @@ def find_empty_positions(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.Tuple[in
     """
     for i in range(0, len(grid)):
         for j in range(0, len(grid[0])):
-            if grid[i][j] == '.':
+            if grid[i][j] == ".":
                 return i, j
     return None
 
@@ -141,16 +139,15 @@ def massive_to_set(a):
 
 
 def check_solution(solution: tp.List[tp.List[str]]) -> bool:
-    """ Если решение solution верно, то вернуть True, в противном случае False """
     if find_empty_positions(solution):
         return False
     for i in range(len(solution)):
         for j in range(len(solution)):
             pos = (i, j)
             if (
-                    massive_to_set(get_col(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
-                    or massive_to_set(get_row(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
-                    or massive_to_set(get_block(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
+               massive_to_set(get_col(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
+               or massive_to_set(get_row(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
+               or massive_to_set(get_block(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
             ):
                 return False
 
