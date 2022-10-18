@@ -145,9 +145,9 @@ def check_solution(solution: tp.List[tp.List[str]]) -> bool:
         for j in range(len(solution)):
             pos = (i, j)
             if (
-               massive_to_set(get_col(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
-               or massive_to_set(get_row(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
-               or massive_to_set(get_block(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                massive_to_set(get_col(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                or massive_to_set(get_row(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
+                or massive_to_set(get_block(solution, pos)) != {1, 2, 3, 4, 5, 6, 7, 8, 9}
             ):
                 return False
 
