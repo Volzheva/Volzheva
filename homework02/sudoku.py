@@ -179,7 +179,7 @@ def generate_sudoku(N: int) -> tp.List[tp.List[str]]:
         N = 81
 
     grid: tp.List[tp.List[str]] = [["."] * 9 for i in range(9)]
-    grid = solve(grid)
+    grid: tp.List[tp.List[str]] = solve(grid)
 
     num = 0
     while num < (81 - N):
